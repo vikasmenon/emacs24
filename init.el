@@ -15,7 +15,7 @@
 
 ;(require 'rainbow-delimiters)
 ;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-
+(require 'magit)
 (require 'ido)
 (ido-mode t)
 
@@ -34,3 +34,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(global-set-key (kbd "C-x G") 'magit-status)

@@ -1,3 +1,4 @@
+(setq inhibit-startup-message t)
 (add-to-list 'load-path "~/.emacs.d/init_scripts/")
 
 (require 'package)
@@ -16,6 +17,8 @@
 ;(require 'rainbow-delimiters)
 ;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (require 'magit)
+(setq magit-last-seen-setup-instructions "1.4.0")
+
 (require 'ido)
 (ido-mode t)
 

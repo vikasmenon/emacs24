@@ -13,18 +13,12 @@
   (setenv "PATH" (concat my-cabal-path ":" (getenv "PATH")))
   (add-to-list 'exec-path my-cabal-path))
 
-(require 'haskell-mode)
+(push "~/.emacs.d/init_scripts/haskell" load-path)
+(load "~/.emacs.d/init_scripts/haskell/pretty_haskell.el")
+(add-hook 'haskell-mode-hook 'haskell-unicode)
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 
-(custom-set-variables
-  '(haskell-program-name "cabal")
-  '(haskell-program-args '("repl"))
-  '(haskell-ghci-program-name "cabal")
-  '(haskell-ghci-program-args '("repl"))
-  '(haskell-process-suggest-remove-import-lines t)
-  '(haskell-process-auto-import-loaded-modules t)
-  '(haskell-process-log t)
-  '(haskell-tags-on-save t)
-)
+(require 'haskell-mode)
 
 (require 'company)
 (add-hook 'haskell-mode-hook 'company-mode)
@@ -55,3 +49,32 @@
   (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
   (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-ghc-show-info t)
+ ;'(haskell-ghci-program-args (quote ("repl")))
+ ;'(haskell-ghci-program-name "cabal")
+ ;'(haskell-process-auto-import-loaded-modules t)
+ ;'(haskell-process-log t)
+ ;'(haskell-process-suggest-remove-import-lines t)
+ ;'(haskell-process-type (quote cabal-repl))
+ ;'(haskell-program-args (quote ("repl")))
+ ;'(haskell-program-name "cabal")
+ ;'(haskell-tags-on-save t)
+ '(safe-local-variable-values (quote ((haskell-process-use-ghci . t) (haskell-indent-spaces . 4))))
+ '(tool-bar-mode nil))
+
+(custom-set-variables
+  '(haskell-process-type 'ghci)
+  '(haskell-program-name "cabal")
+  '(haskell-program-args '("repl"))
+  '(haskell-ghci-program-name "cabal")
+  '(haskell-ghci-program-args '("repl"))
+  '(haskell-process-suggest-remove-import-lines t)
+  '(haskell-process-auto-import-loaded-modules t)
+  '(haskell-process-log t)
+  '(haskell-tags-on-save t)
+)

@@ -15,7 +15,6 @@
 
 (push "~/.emacs.d/init_scripts/haskell" load-path)
 (load "~/.emacs.d/init_scripts/haskell/pretty_haskell.el")
-
 (require 'haskell-mode)
 (require 'company)
 (add-hook 'haskell-mode-hook 'haskell-unicode)
@@ -61,3 +60,5 @@
   '(haskell-tags-on-save t)
   '(safe-local-variable-values (quote ((haskell-process-use-ghci . t) (haskell-indent-spaces . 4))))
 )
+
+(global-linum-mode)

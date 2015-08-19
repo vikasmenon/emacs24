@@ -27,9 +27,9 @@
 (add-hook 'haskell-mode-hook 'structured-haskell-mode)
 (add-hook 'haskell-mode-hook (cua-selection-mode nil))
 
-(autoload 'ghc-init' "ghc" nil t)
-(autoload 'ghc-debug' "ghc" nil t )
-(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+;(autoload 'ghc-init' "ghc" nil t)
+;(autoload 'ghc-debug' "ghc" nil t )
+;(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
 
 (eval-after-load 'haskell-mode '(progn
@@ -49,11 +49,12 @@
 
 (custom-set-variables
   '(company-ghc-show-info t)
-  '(haskell-process-type 'ghci)
-  '(haskell-program-name "cabal")
-  '(haskell-program-args '("repl"))
-  '(haskell-ghci-program-name "cabal")
-  '(haskell-ghci-program-args '("repl"))
+  ;'(haskell-program-name "cabal")
+  ;'(haskell-program-args '("repl"))
+  ;'(haskell-ghci-program-name "cabal")
+  ;'(haskell-ghci-program-args '("repl"))
+  '(haskell-process-type (quote stack-ghci))
+  '(haskell-program-name "stack ghci")
   '(haskell-process-suggest-remove-import-lines t)
   '(haskell-process-auto-import-loaded-modules t)
   '(haskell-process-log t)

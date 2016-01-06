@@ -21,6 +21,12 @@
 (require 'ido)
 (ido-mode t)
 
+(autoload 'bash-completion-dynamic-complete 
+  "bash-completion"
+  "BASH completion hook")
+(add-hook 'shell-dynamic-complete-functions
+  'bash-completion-dynamic-complete)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -41,7 +47,7 @@
  '(safe-local-variable-values (quote ((haskell-process-use-ghci . t) (haskell-indent-spaces . 4))))
  '(tool-bar-mode nil))
 
-(global-set-key (kbd "C-x G") 'magit-status)
+(global-set-key (kbd "C-x g") 'magit-status)
 
 (autoload 'haskell-mode "init_haskell" nil t)
 
